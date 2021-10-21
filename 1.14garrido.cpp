@@ -1,28 +1,27 @@
 #include <iostream>
 #include <math.h>
 using namespace std;
-int main() {
 
-	double var1, var2, var3;
-	double media, desviacion, part1, part2;
+int main(){
+	//Datos aportados y que vamos a usar para calcular
+	const double x0 = sqrt(2);
+	const double y1 = pow(2, 0.25);
+	const double pi0 = 2 + sqrt(2);
 	
-	cout<<"\n	introduce el valor de x1: ";
-	cin>>var1;
-	cout<<"\n	introduce el valor de x2: ";
-	cin>>var2;
-	cout<<"\n	introduce el valor de x3: ";
-	cin>>var3;
+	//Variables necesarias para el cálculo de pi1 y pi2
+	double x1, pi1;
+	double x2, y2, pi2;
 	
-	//formula  
+	//Cálculos para pi1
+	x1 = (sqrt(x0)+(1/sqrt(x0)))/2;
+	pi1 = pi0 * ((x1 + 1) / (y1 + 1));
 	
-	media = (var1 + var2 + var3)/3;
+	//Cálculos para pi2
+	x2 = (sqrt(x1)+(1/sqrt(x1)))/2;
+	y2 = (y1 * sqrt(x1)+(1/sqrt(x1))) / (y1 + 1);
+	pi2 = pi1 * ((x2 + 1) / (y2 + 1));
 	
-	part1= pow(var1-media, 2.0)+ pow(var2-media, 2.0)+ pow(var3-media, 2.0);
-	
-	part2 = part1/3;
-	desviacion= sqrt(part2);
-	
-	cout<<"\n	la media es = "<<media<<endl;
-	cout<<"\n	la desviacion tipica es = "<<desviacion<<endl;
+	//Se muestran pi0, pi1 y pi2
+	cout << "π0 vale " << pi0 << ", π1 vale " << pi1 << " y π2 vale " << pi2 << endl;
 }
 	
